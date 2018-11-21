@@ -74,7 +74,31 @@ $(document).ready(function(){
         });
         
     });// end generate
+
+    $(".copy-btn").on('click', function(e){
+
+        copyToClipboard($("#code").html().replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
+        $(".copy-action-info").show();
+        setTimeout(function(){
+            $(".copy-action-info").fadeOut(2000);
+        }, 1000)
+
+    });
     
     
     
 });
+
+var copyToClipboard = function(str) {
+    var el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp('\\'+search, 'g'), replacement);
+};

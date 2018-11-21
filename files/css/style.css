@@ -350,6 +350,12 @@ a:hover {
 }
 
 
+.copy-action-info {
+    padding:0.3rem;
+    background:yellow;
+    margin:0.3rem;
+}
+
 .clear {
 	clear: both;
 }
