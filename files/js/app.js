@@ -61,6 +61,17 @@ $(document).ready(function(){
         $("#previewInner,#code").html(code);
         
         $("#preview,#code").removeClass("old");
+
+        $.ajax("log.php",{
+            type:"POST",
+            data: {code: code},
+            success: function(d){
+                console.log(d);
+            },
+            error : function(a,b,c){
+                console.error(a+b+c);
+            }
+        });
         
     });// end generate
     
