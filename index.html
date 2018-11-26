@@ -1,126 +1,96 @@
-<html>
-    <head>
-        <title>HTML drop down generator | Dynamic Guru</title>
-	
-	<link rel='author' href='https://plus.google.com/111280468685192491968/posts/'>
-	<meta name="description" content="A tool to generate html &lt;select&gt; &lt;option&gt; drop-down list quickly">
-	<meta name="keywords" content="html drop-down generator,select option generator,drop-down code generator">
-	    
-	    
-        <link href="files/css//style.css" type="text/css" rel="stylesheet">
-        <link rel='stylesheet' href='//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css'>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="files/js/app.js"></script>
-        
-        <!-- GOOGLE ANALYTICS -->
-        <script>
-	var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4647398-5']);
-  _gaq.push(['_trackPageview']);
+<!DOCTYPE html>
+<html lang='en'>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();</script>
-    </head>
-    <body>
-        <div id="headerWrap">
-            <div id="header">
-		<div id="headerInner">
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>HTML drop down generator | Dynamic Guru</title>
+
+    <meta name="description" content="A tool to generate html &lt;select&gt; &lt;option&gt; drop-down list quickly">
+    <meta name="keywords" content="html drop-down generator,select option generator,drop-down code generator">
+
+
+    <link rel="stylesheet" href="files/css/style.css" type="text/css" >
+    <link rel='stylesheet' href='//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css'>
+    <link rel="stylesheet" href="files/css/prism.css" type="text/css" >
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="files/js/prism.js"></script>
+    <script type="text/javascript" src="files/js/app.js"></script>
+    
+    
+
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+        /*
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-4647398-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        */
+    </script>
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <header class="header">
+            <div class="header-inner">
                 <h1>HTML drop down code generator</h1>
-                <h2>A tool to generate html &lt;select&gt; &lt;option&gt; drop-down list quickly</h2>
-		</div>
-		<div id="headerMeta">
-		<a href="http://www.dynamicguru.com" title="brought to you by Dynamic Guru">www.dynamicguru.com</a>
-		</div>
-		<div class="clear"></div>
-	    </div>
-	    
-	    
-	</div>
-	<div id="wrapper">
-            <div id="content">
-                <div id="inputsArea">
-                    <div id="optLbl"><span>Options (<strong class="noOpts">3</strong>) :</span></div>
-                    <form>
-                        <table id="f">
-                            <thead>
-                                <tr>
-                                    <th class="text">Option text</th>
-                                    <th class="value">value</th>
-                                    <th class="title">title</th>
-                                </tr>
-                            </thead>
-                            <tbody id="genI">
-                                <tr>
-                                    <td><input class='text'  type='text' name='text1'  value=''></td>
-                                    <td class='val'><input class='value'   type='text' name='val1'   value=''></td>
-                                    <td><input class='title' type='text' name='title1' value=''></td>
-                                </tr>
-                                <tr>
-                                    <td><input class='text'  type='text' name='text2'  value=''></td>
-                                    <td class='val'><input class='value'   type='text' name='val2'   value=''></td>
-                                    <td><input class='title' type='text' name='title2' value=''></td>
-                                </tr>
-                                <tr>
-                                    <td><input class='text'  type='text' name='text3'  value=''></td>
-                                    <td class='val'><input class='value'   type='text' name='val3'   value=''></td>
-                                    <td><input class='title' type='text' name='title3' value=''></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-				    <td>
-					<label for="variable">Variable <span class="tt">name</span> :</label> <input type="text" name="variable" id="variable" value="">
-				    </td>
-				    <td class="value">
-					<input type="checkbox" name="multi" id="multi"> <label for="multi" class="tt"> multiple</label>
-				    </td>
-                                    <td id="tFootBtn">
-                                        + option
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        
-                        
-                        
-                    </form>
-                </div>
-                <div id="controls">
-                    <button id="addMore">+</button>
-                    <button id="less">-</button>
-                    <button id="generate">Get code</button>
-                </div>
-                <div id="output">
-                    <div id="info">
-                        Number of options: <strong class="noOpts">3</strong><br>
-                    </div>
-                    <div id="preview">
-                        <em>Preview:</em>
-                        <div id="previewInner">
-                            <select name=''>
-                            <option title='Option 1' value='Option 1'>Option 1</option>
-                            <option title='Option 2' value='Option 2'>Option 2</option>
-                            <option title='Option 3' value='Option 3'>Option 3</option>
-                            </select>
-                            
-                        </div>
-                    </div>
-                    <div id="codeWrap">
-                        <em>Generated Code:</em>
-                        <textarea id="code" onfocus="select()"></textarea>
-                        <button class='copy-btn'><i class="mdi mdi-content-copy"></i> Copy to clipboard</button><span class='copy-action-info' style="display:none">Copied!</span>
-                    </div>
-                    
-                </div>
+                <h2>A tool to generate html <span>&lt;select&gt;..&lt;option&gt;</span> drop-down list quickly</h2>
             </div>
-	</div>
-	<div id="footerWrap" >
-            <div id="footer">
-                v 1.2 &mdash; &copy; Mujtaba Ahmad &mdash; <a href="http://www.dynamicguru.com" title="brought to you by www.dynamicguru.com">www.dynamicguru.com</a>
+            <div class="header-meta">
+                <a href="https://www.dynamicguru.com" title="brought to you by Dynamic Guru">www.dynamicguru.com</a>
             </div>
+        </header>
+
+
+    </div>
+
+    <div class='wrapper'>
+
+
+        <div class='options-editor'></div>
+
+        <div class="options-controls">
+            <button class='secondary add-option'>
+                <i class='mdi mdi-plus'></i> Add Option
+            </button>
+
+            <button class='primary generate-code'>
+                <i class='mdi mdi-code-tags'></i> Generate Code
+            </button>
         </div>
-    </body>
+
+        <div class='result'>
+            <div class='generated-code'>
+                <pre><code class="language-markup"></code></pre>
+                <button class='secondary copy-code'>
+                    <i class='mdi mdi-content-copy'></i> Copy code
+                </button>
+            </div>
+            <div class='preview'></div>
+        </div>
+
+
+
+    </div>
+
+
+    
+
+    
+    
+    
+</body>
+
 </html>
