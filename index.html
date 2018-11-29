@@ -14,20 +14,12 @@
     <meta name="keywords" content="html drop-down generator,select option generator,drop-down code generator">
 
 
-    <link rel="stylesheet" href="files/css/style.css" type="text/css" >
-    <link rel='stylesheet' href='//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css'>
-    <link rel="stylesheet" href="files/css/prism.css" type="text/css" >
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="files/js/prism.js"></script>
-    <script type="text/javascript" src="files/js/app.js"></script>
-    
-    
+    <link rel="stylesheet" href="files/css/style.css" type="text/css">
+    <link rel="stylesheet" href="files/css/prism.css" type="text/css">
 
     <!-- GOOGLE ANALYTICS -->
     <script>
-        /*
+        
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-4647398-5']);
         _gaq.push(['_trackPageview']);
@@ -37,7 +29,7 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-        */
+        
     </script>
 </head>
 
@@ -59,26 +51,40 @@
     <div class='wrapper'>
 
 
+        <div class="options-config">
+            <div>
+                <label for='options-config-name'>name=</label><input type='text' class='options-config-name' id='options-config-name'>
+            </div>
+            <div>
+                <input type='checkbox' class='options-config-multiline' id='options-config-multiline'> <label for='options-config-multiline'>multiline</label>
+            </div>
+        </div>
         <div class='options-editor'></div>
 
         <div class="options-controls">
             <button class='secondary add-option'>
-                <i class='mdi mdi-plus'></i> Add Option
+                + Add Option
             </button>
 
             <button class='primary generate-code'>
-                <i class='mdi mdi-code-tags'></i> Generate Code
+                &lt;&gt; Generate Code
             </button>
         </div>
 
-        <div class='result'>
+        <div class='result' style="display:none">
             <div class='generated-code'>
+                <h2>Generated Code</h2>
                 <pre><code class="language-markup"></code></pre>
                 <button class='secondary copy-code'>
-                    <i class='mdi mdi-content-copy'></i> Copy code
+                    Copy code
                 </button>
             </div>
-            <div class='preview'></div>
+            <div class='preview-wrapper'>
+                <h2>Dropdown Preview</h2>
+                <div class='preview'>
+
+                </div>
+            </div>
         </div>
 
 
@@ -86,11 +92,13 @@
     </div>
 
 
-    
 
-    
-    
-    
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="files/js/prism.js"></script>
+    <script type="text/javascript" src="files/js/app.js"></script>
 </body>
 
 </html>

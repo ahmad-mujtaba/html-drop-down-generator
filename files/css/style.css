@@ -122,6 +122,10 @@ body {
     flex-basis: 34%;
 }
 
+.header .header-meta a {
+    color:#fff;
+}
+
 .header h1 {
     font-size:3rem;
     color:#fff;
@@ -150,6 +154,22 @@ div.wrapper {
     box-shadow: 0px 1px 5px 0 rgba(0,0,0,0.4);
 }
 
+
+.options-config {
+    display:flex;
+    color:#769e24;
+    text-align:center;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin:2em;
+}
+
+.options-config > div {
+    flex-basis:50%;
+}
+
+
 .options-editor {
     display: table;
     width: 100%;
@@ -164,16 +184,16 @@ div.wrapper {
     display:table-cell;
     box-sizing:border-box;
     padding:1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e6e6e6;
 }
 
-.option-item:nth-child(2n) {
-    background:#fff4f4;
+.option-item:nth-child(2n+1) {
+    background:#f8f8f8;
 }
 
 .option-item > div > input[type='text'] {
     width:100%;
-    padding:4px;
+    
     
 }
 
@@ -231,18 +251,78 @@ button.secondary:hover {
 }
 
 button.delete-option {
-    color:#666;
-    padding:0;
-    font-size:18px;
+    color: #666;
+    padding: 0;
+    font-family: monospace;
+    font-size: 18px;
+    margin-left: 0.5em;
 }
 
 button.delete-option:hover {
     color:red;
-    align-items:center;
+    
+}
+
+button.add-option {
+    margin-top: 0;
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    background: #89bf33;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7em;
+}
+
+button.add-option:hover,
+button.add-option:active,
+button.add-option:focus {
+    background: #608622;
+    color:#fff;
+    outline: none;
 }
 
 .copy-code {
     transition: 2s ease background-color;
+}
+
+label {
+    cursor:pointer;
+}
+
+input[type='text'] {
+    padding:5px 7px;
+    border-radius:4px;
+    border:1px solid #aaa;
+}
+
+input[type='text']:active,
+input[type='text']:focus  {
+    border:1px solid #f92672;
+    color:#000;
+    outline: none;
+}
+
+input[type='radio']:checked + label {
+    font-weight:bold;
+}
+
+
+.preview-wrapper {
+    margin-top:2em;
+}
+
+.preview {
+    border:2px dashed rgb(180, 180, 149);
+    padding:2em;
+    background:#f6f6f6;
+}
+.result h2 {
+    font-size:1.7em;
+    font-weight: bold;
+    color:#000;
+    letter-spacing:-1px;
 }
 
 

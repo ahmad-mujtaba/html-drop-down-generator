@@ -95,61 +95,27 @@ $(document).ready(function () {
     $(".options-editor").html(html);
 
 
+    $("input").change(function(e){
+        //$(".result").fadeOut();
+        generateCode();
+    });
+
     $(".add-option").click(function(e){
         $(".options-editor").append(getOptionItem($(".options-editor .option-item").length + 1));
+        //$(".result").fadeOut();
+        generateCode();
     });
 
     $(document).on("click", ".delete-option", function(e){
         $(this).parent().parent().remove();
         readjustSequenceNumber();
+        //$(".result").fadeOut();
+        generateCode();
     });
 
 
-    $(".generate-code").click(function(e){
-        var code = '';
 
-        code += '<select name=\'\'>\r\n';
-        $(".options-editor .option-item").each(function(i, v) {
-
-
-            code += '\t<option';
-
-            var title = escapeHtml($(this).find('.option-title input').val());
-            if(title.trim() !== '') {
-                code += " title='"+title+"'";
-            }
-
-            var value = escapeHtml($(this).find('.option-value input').val());
-            if(value.trim() !== '') {
-                code += " value='"+value+"'";
-            }
-
-            var text = escapeHtml($(this).find('.option-text input').val());
-            if(text.trim() === '') {
-                text = $(this).find('.option-text input').attr('placeholder');
-            }
-
-            var selected = $(this).find('.option-selected input').is(':checked');
-
-            selectedAttr = '';
-            if(selected) {
-                selectedAttr = ' selected=\'selected\'';
-            }
-            
-
-            code += selectedAttr+'>'+text+'</option>\r\n';
-
-
-            
-        });
-        code += '</select>'
-
-        $('.result .preview').html(code);
-        $('.result .generated-code code').html(escapeHtml(code));
-        Prism.highlightElement($('code')[0]);
-        
-        
-    });
+    $(".generate-code").click(generateCode);
 
     $(".copy-code").on("click", function(e) {
         $("code").text().copyToClipboard();
@@ -157,6 +123,59 @@ $(document).ready(function () {
 
 
 });
+
+var generateCode = function(e){
+    var code = '';
+
+    
+    var multiple = '';
+    if($('.options-config-multiline').is(':checked')) {
+        multiple += ' multiple=\'multiple\'';
+    }
+    code += '<select name=\''+$(".options-config-name").val()+'\''+multiple+'>\r\n';
+    $(".options-editor .option-item").each(function(i, v) {
+
+
+        code += '\t<option';
+
+        var title = escapeHtml($(this).find('.option-title input').val());
+        if(title.trim() !== '') {
+            code += " title='"+title+"'";
+        }
+
+        var value = escapeHtml($(this).find('.option-value input').val());
+        if(value.trim() !== '') {
+            code += " value='"+value+"'";
+        }
+
+        var text = escapeHtml($(this).find('.option-text input').val());
+        if(text.trim() === '') {
+            text = $(this).find('.option-text input').attr('placeholder');
+        }
+
+        var selected = $(this).find('.option-selected input').is(':checked');
+
+        selectedAttr = '';
+        if(selected) {
+            selectedAttr = ' selected=\'selected\'';
+        }
+        
+
+        code += selectedAttr+'>'+text+'</option>\r\n';
+
+
+        
+    });
+    code += '</select>'
+
+    $('.result .preview').html(code);
+    $('.result .generated-code code').html(escapeHtml(code));
+    Prism.highlightElement($('code')[0]);
+
+    $(".result").fadeIn();
+    
+    
+};
 
 var readjustSequenceNumber = function() {
     $(".options-editor .option-item").each(function(i,v){
@@ -193,7 +212,7 @@ var getOptionItem = function (n) {
         </div>
         <div class='option-controls'>
             <button class='delete-option'>
-                <i class="mdi mdi-close-circle-outline"></i>
+                x
             </button>
         </div>
 
