@@ -230,7 +230,17 @@ button.primary {
     border-radius:5px;
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 0px;
+	letter-spacing: 0px;
+	
+	border-radius: 3px;
+    box-shadow: none;
+    padding: 16px 24px;
+    letter-spacing: 1px;
+    line-height: 1;
+    height: auto;
+	width: auto;
+	text-transform: uppercase;
+	font-family:'Roboto';
 }
 
 button.primary:hover {
@@ -293,13 +303,15 @@ label {
 
 input[type='text'] {
     padding:5px 7px;
-    border-radius:4px;
-    border:1px solid #aaa;
+    border-radius:2px;
+	border:1px solid #bbb;
+	transition:200ms ease all;
 }
 
 input[type='text']:active,
 input[type='text']:focus  {
-    border:1px solid #f92672;
+	border-bottom:2px solid #f92672;
+	padding-bottom:4px;
     color:#000;
     outline: none;
 }
