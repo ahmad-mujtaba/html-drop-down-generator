@@ -1,98 +1,13 @@
 $(document).ready(function () {
 
-    var INTIAL_NO_OF_ITEMS = 4;
-    // var NO_OF_FIELDS=3;
-
-
-    // $("#addMore,#tFootBtn").on("click",function(){
-
-    //     no_of_inputs=$("#genI input").length;
-    //     $(".noOpts").html((no_of_inputs/NO_OF_FIELDS)+1);
-    //     if(!$("#preview").hasClass("old")) {
-    //         $("#preview,#code").addClass("old");
-    //     }
-    //     if(no_of_inputs%NO_OF_FIELDS===0) {
-    //         no_of_opts=no_of_inputs/NO_OF_FIELDS;
-    //         $("#genI").append("<tr>");
-    //         $("#genI tr").eq(no_of_opts).append("<td><input class='text' type='text' name='text"+(no_of_opts+1)+"'></td>", "<td class='val'><input class='value' type='text' name='val"+(no_of_opts+1)+"'></td>","<td><input class='title' type='text' name='title"+(no_of_opts+1)+"'></td>");
-    //     }
-    //     else { // inputs were not added correctly as they are always to be added in triples
-    //         alert("Error");
-    //     }
-
-    // });//end addMore
-
-    // $("#less").on("click",function(){
-    //     no_of_inputs=$("#genI input").length;
-
-
-
-    //     if((no_of_inputs/NO_OF_FIELDS)>1) {
-    //         if(!$("#preview").hasClass("old")) {
-    //             $("#preview,#code").addClass("old");
-    //         }
-    //         $("#genI input").eq((no_of_inputs)-1).detach();
-    //         $("#genI input").eq((no_of_inputs-1)-1).detach();
-    //         $("#genI input").eq((no_of_inputs-2)-1).detach();
-    //         $("#genI tr").eq((no_of_inputs/NO_OF_FIELDS)-1).detach();
-    //         $(".noOpts").html((no_of_inputs/NO_OF_FIELDS)-1);
-    //     }
-    // }); // end less
-
-
-    // $("#generate").on("click",function(){
-    //     no_of_inputs=$("#genI input").length;
-    //     $(".noOpts").html(no_of_inputs/NO_OF_FIELDS);
-
-    //     code="<select name='"+$("#variable").val()+"' ";
-    //     if(document.getElementById("multi").checked) {code+=" multiple='multiple' ";}
-    //     code+=">";
-
-    //     for(i=0;i<no_of_inputs;i=i+NO_OF_FIELDS) {
-    //         tempText=$("#genI input").eq(i).val();
-    //         tempVal=$("#genI input").eq(i+1).val();
-    //         tempTitle=$("#genI input").eq(i+2).val();
-
-    //         if(tempText===''){tempText="Option "+((i/NO_OF_FIELDS)+1);}
-    //         if(tempTitle===''){tempTitle=tempText}
-    //         if(tempVal===''){tempVal=tempText}
-
-    //         code+="\n\t<option title='"+tempTitle+"' value='"+tempVal+"'>"+tempText+"</option>";
-    //     }
-    //     code+="\n</select>";
-    //     $("#previewInner,#code").html(code);
-
-    //     $("#preview,#code").removeClass("old");
-
-    //     $.ajax("log.php",{
-    //         type:"POST",
-    //         data: {code: code},
-    //         success: function(d){
-    //             console.log(d);
-    //         },
-    //         error : function(a,b,c){
-    //             console.error(a+b+c);
-    //         }
-    //     });
-
-    // });// end generate
-
-    // $(".copy-btn").on('click', function(e){
-
-    //     copyToClipboard($("#code").html().replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
-    //     $(".copy-action-info").show();
-    //     setTimeout(function(){
-    //         $(".copy-action-info").fadeOut(2000);
-    //     }, 1000)
-
-    // });
-
-
+    var INTIAL_NO_OF_ITEMS = 3;   
     var html = '';
-    for (var i = 0; i < INTIAL_NO_OF_ITEMS; ++i) {
-        html += getOptionItem((1 + i));
+    for (var i = 0; i < INTIAL_NO_OF_ITEMS;) {
+        html += getOptionItem((++i));
     }
     $(".options-editor").html(html);
+
+    loadStyleSheet("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
 
 
     $("input").change(function(e){
@@ -212,7 +127,10 @@ var getOptionItem = function (n) {
         </div>
         <div class='option-controls'>
             <button class='delete-option'>
-                x
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>                
+                </svg>
             </button>
         </div>
 
@@ -242,3 +160,14 @@ function escapeHtml(unsafe) {
          .replace(/"/g, "&quot;")
          .replace(/'/g, "&#039;");
  }
+
+ function loadStyleSheet(src){
+    if (document.createStyleSheet) document.createStyleSheet(src);
+    else {
+        var stylesheet = document.createElement('link');
+        stylesheet.href = src;
+        stylesheet.rel = 'stylesheet';
+        stylesheet.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    }
+}
